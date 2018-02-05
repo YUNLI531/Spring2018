@@ -310,7 +310,7 @@ We can also study terms that have the greatest difference in probabilities betwe
 spooky_wrd_topics <- mutate(spooky_wrd_topics, topic = paste0("topic", topic))
 spooky_wrd_topics <- spread(spooky_wrd_topics, topic, beta)
 
-spooky_wrd_topics_12 <- filter(spooky_wrd_topics, topic2 > .001 | topic3 > .001)
+spooky_wrd_topics_12 <- filter(spooky_wrd_topics, topic1 > .001 | topic2 > .001)
 spooky_wrd_topics_12 <- mutate(spooky_wrd_topics_12, log_ratio = log10(topic2 / topic1))
 spooky_wrd_topics_12 <- group_by(spooky_wrd_topics_12, direction = log_ratio > 0)
 spooky_wrd_topics_12 <- ungroup(top_n(spooky_wrd_topics_12, 5, abs(log_ratio)))
